@@ -181,7 +181,7 @@ export default function Header({ onMenuToggle }) {
 
   return (
     <header
-      className="fixed top-0 right-0 left-0 z-30 flex h-16 items-center gap-4 border-b border-[var(--border-default)] bg-[var(--bg-primary)]/80 backdrop-blur-md px-4 lg:px-6"
+      className="sticky top-0 z-30 flex h-16 shrink-0 items-center gap-4 border-b border-[var(--border-default)] bg-[var(--bg-primary)]/80 backdrop-blur-md px-4 lg:px-6"
       role="banner"
     >
       {/* ── Left: Hamburger (mobile) + Title ── */}
