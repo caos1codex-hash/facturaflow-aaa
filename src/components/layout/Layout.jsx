@@ -76,7 +76,7 @@ export default function Layout() {
 
         {/* ── Page content ── */}
         <main
-          className="flex-1 px-4 py-6 lg:px-8 lg:py-8"
+          className="flex-1 px-4 pt-20 pb-6 lg:px-8 lg:pb-8"
           role="main"
         >
           <Outlet />
