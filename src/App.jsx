@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import LoadingScreen from './components/ui/LoadingScreen'
+import ErrorBoundary from './components/ErrorBoundary'
 
 // ── Lazy-loaded pages ────────────────────────────────────────
 
@@ -19,22 +20,24 @@ const Settings = lazy(() => import('./pages/Settings'))
 
 export default function App() {
   return (
-    <Suspense fallback={<LoadingScreen />}>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="clientes" element={<Clients />} />
-          <Route path="productos" element={<Products />} />
-          <Route path="facturas" element={<Invoices />} />
-          <Route path="facturas/nueva" element={<CreateInvoice />} />
-          <Route path="facturas/:id" element={<InvoiceDetail />} />
-          <Route path="facturas/:id/editar" element={<CreateInvoice />} />
-          <Route path="reportes" element={<Reports />} />
-          <Route path="historial" element={<History />} />
-          <Route path="configuracion" element={<Settings />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense fallback={<LoadingScreen />}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="clientes" element={<Clients />} />
+            <Route path="productos" element={<Products />} />
+            <Route path="facturas" element={<Invoices />} />
+            <Route path="facturas/nueva" element={<CreateInvoice />} />
+            <Route path="facturas/:id" element={<InvoiceDetail />} />
+            <Route path="facturas/:id/editar" element={<CreateInvoice />} />
+            <Route path="reportes" element={<Reports />} />
+            <Route path="historial" element={<History />} />
+            <Route path="configuracion" element={<Settings />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
   )
 }

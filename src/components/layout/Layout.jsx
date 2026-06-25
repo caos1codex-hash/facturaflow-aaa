@@ -1,11 +1,10 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useLocation, Outlet } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from './Sidebar'
 import Header from './Header'
 
 // ── Layout Component ──────────────────────────────────────────
-export default function Layout({ children }) {
+export default function Layout() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isDesktop, setIsDesktop] = useState(false)
@@ -76,19 +75,12 @@ export default function Layout({ children }) {
         <Header onMenuToggle={handleMobileToggle} />
 
         {/* ── Page content ── */}
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={location.pathname}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="flex-1 px-4 py-6 lg:px-8 lg:py-8"
-            role="main"
-          >
-            <Outlet />
-          </motion.main>
-        </AnimatePresence>
+        <main
+          className="flex-1 px-4 py-6 lg:px-8 lg:py-8"
+          role="main"
+        >
+          <Outlet />
+        </main>
       </div>
     </div>
   )
