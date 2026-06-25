@@ -18,6 +18,7 @@ import {
   Edit3,
   Clock,
   Calendar,
+  History as HistoryIcon,
 } from 'lucide-react';
 import {
   parseISO,
@@ -424,7 +425,7 @@ export default function HistoryPage() {
             </div>
           ) : paginatedEvents.length === 0 ? (
             <EmptyState
-              icon={History}
+              icon={HistoryIcon}
               title="Sin actividad"
               description={hasFilters
                 ? "No se encontraron eventos con los filtros seleccionados."

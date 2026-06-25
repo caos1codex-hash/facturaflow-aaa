@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, AlertCircle, Info, Trash2 } from 'lucide-react';
+import { AlertTriangle, AlertCircle, Trash2 } from 'lucide-react';
 import { Modal } from './Modal';
 import { Button } from './Button';
 

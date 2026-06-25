@@ -86,7 +86,7 @@ export function Button({
 
       {children && <span>{children}</span>}
 
-      {iconRight && iconPosition !== 'right' && !loading && (
+      {IconRight && iconPosition !== 'right' && !loading && (
         <IconRight size={sizeStyle.iconSize} className="shrink-0" />
       )}
     </motion.button>

@@ -212,9 +212,10 @@ export default function Dashboard() {
         label: 'Estado',
         width: '120px',
         render: (val) => {
-          const statusCfg = INVOICE_STATUSES[val] || INVOICE_STATUSES.BORRADOR;
+          const statusKey = val || 'BORRADOR';
+          const statusCfg = INVOICE_STATUSES[statusKey] || INVOICE_STATUSES.BORRADOR;
           return (
-            <Badge variant={statusCfg.color} size="sm" dot>
+            <Badge variant={statusKey.toLowerCase()} size="sm" dot>
               {statusCfg.label}
             </Badge>
           );

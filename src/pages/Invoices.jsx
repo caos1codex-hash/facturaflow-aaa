@@ -67,9 +67,8 @@ function getStatusConfig(status) {
 
 // ── Helper: badge variant desde status key ─────────────────────
 function getBadgeVariant(status) {
-  const cfg = INVOICE_STATUSES[status];
-  if (!cfg) return 'default';
-  return cfg.color;
+  if (!INVOICE_STATUSES[status]) return 'default';
+  return status.toLowerCase();
 }
 
 // ════════════════════════════════════════════════════════════════

@@ -71,8 +71,8 @@ const itemVariants = {
 
 // ── Helpers ──────────────────────────────────────────────────────
 function getStatusVariant(status) {
-  const cfg = INVOICE_STATUSES[status];
-  return cfg?.color || 'default';
+  if (!INVOICE_STATUSES[status]) return 'default';
+  return status.toLowerCase();
 }
 
 function getPaymentMethodLabel(key) {
@@ -154,7 +154,7 @@ function PaymentTimeline({ invoice }) {
               >
                 {state === 'completed' ? <CheckCircle2 size={18} /> : state === 'cancelled' ? <XCircle size={18} /> : <Circle size={18} />}
               </div>
-              <span className={`text-xs font-medium ${state === 'completed' ? 'text-[var(--text-primary)]' : 'text-[var(--text-tertiary)'}`}>
+              <span className={`text-xs font-medium ${state === 'completed' ? 'text-[var(--text-primary)]' : 'text-[var(--text-tertiary)]'}`}>
                 {step.label}
               </span>
               {step.date && state === 'completed' && (
