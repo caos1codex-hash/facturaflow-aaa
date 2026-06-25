@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Outlet } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from './Sidebar'
 import Header from './Header'
@@ -86,7 +86,7 @@ export default function Layout({ children }) {
             className="flex-1 px-4 py-6 lg:px-8 lg:py-8"
             role="main"
           >
-            {children}
+            <Outlet />
           </motion.main>
         </AnimatePresence>
       </div>
